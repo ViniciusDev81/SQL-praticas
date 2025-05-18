@@ -1,13 +1,44 @@
-📌 Repositório de Práticas em SQL
-👨‍💻 Descrição:
+📚 Repositório de Práticas em SQL
+📍 Descrição
+Repositório dedicado a exercícios, projetos e exemplos práticos de SQL (Structured Query Language). Aqui você encontra desde consultas básicas até técnicas avançadas para dominar bancos de dados relacionais.
 
-Bem-vindo ao meu repositório de práticas em SQL! Aqui você encontrará exemplos, exercícios e projetos para dominar consultas SQL, desde o básico até técnicas avançadas.
+🛠 Tecnologias Utilizadas
+SGBDs: MySQL, PostgreSQL, SQLite
 
-🔍 O que tem aqui?
-✔ Fundamentos SQL: SELECT, JOINs, GROUP BY, subconsultas.
-✔ Desafios Práticos: Resoluções de problemas reais (análise de dados, otimização).
-✔ Projetos Completos: Bancos de dados modelados (ex: e-commerce, RH).
-✔ Tutoriais: Explicações passo a passo em READMEs detalhados.
+Ferramentas: DBeaver, VS Code, Git
 
-🚀 Tecnologias Usadas
-SGBDs: MySQL
+Extras: GitHub Actions (para testes automatizados)
+
+🚀 Como Usar
+Clone o repositório:
+
+bash
+git clone https://github.com/seu-usuario/sql-praticas.git  
+Execute os scripts:
+
+Use um cliente SQL (DBeaver, MySQL Workbench) ou linha de comando.
+
+Exemplo para MySQL:
+
+bash
+mysql -u usuario -p < fundamentos/select-filtering.sql  
+Contribua:
+
+Envie pull requests com melhorias ou novos exercícios.
+
+Reporte problemas via issues.
+
+📌 Exemplo de Código
+sql
+-- Exemplo: Consulta com JOIN e GROUP BY  
+SELECT  
+    c.nome AS cliente,  
+    COUNT(p.id) AS total_pedidos  
+FROM clientes c  
+LEFT JOIN pedidos p ON c.id = p.cliente_id  
+GROUP BY c.id  
+ORDER BY total_pedidos DESC;  
+🎯 Objetivos
+Aprender SQL na prática com exemplos reais.
+Preparar-se para entrevistas técnicas (ex: desafios de HackerRank).
+Compartilhar conhecimento com a comunidade.
