@@ -1,0 +1,48 @@
+1. O cliente precisa de um relatório que exiba o total de pedidos entregues no mês de Agosto e o ano seja igual a 1996
+R.	 select COUNT(pedidos.NumeroDoPedido) as Total
+   from pedidos
+   WHERE month (pedidos.DataDeEntrega) = '8'
+   and year (pedidos.DataDeEntrega) = '1996'
+2. Escreva uma consulta SQL que exiba: o número do pedido, nome de contato e a data de entrega. A consulta deve ser ordenada pelo número do pedido.
+select pedidos.NumeroDoPedido,
+	   clientes.NomeDoContato,
+       pedidos.DataDeEntrega
+from pedidos
+inner join clientes 
+on clientes.CodigoDoCliente = clientes.CodigoDoCliente
+ORDER by pedidos.NumeroDoPedido
+
+SELECT COUNT(pedidos.NumeroDoPedido)
+from clientes
+INNER join pedidos
+on clientes.CodigoDoCliente = pedidos.CodigoDoCliente
+3. Escreva uma consulta em SQL que exiba o total de clientes agrupados por país (GROUP BY).
+SELECT clientes.Pais,
+COUNT(clientes.CodigoDoCliente) As Total_Clientes
+	
+from clientes
+group by clientes.Pais
+
+
+
+
+
+4. Escreva uma consulta em SQL que exiba: o nome do cliente, endereço e o cep dos clientes que residem na região BC
+
+SELECT clientes.NomeDaEmpresa,
+	   clientes.CEP,
+	   clientes.Endereco,
+       clientes.regiao
+FROM clientes
+WHERE clientes.regiao = 'BC'
+
+5. O gerente precisa de um relatório que liste o nome do cliente e o nome do destinatário dos clientes cujo o nome do contato contenha a letra A e a cidade seja Barcelona.
+
+
+   SELECT	clientes.NomeDaEmpresa AS Clientes,
+		pedidos.CidadeDeDestino AS Destinatário
+   FROM clientes
+   inner join pedidos 
+   on clientes.CodigoDoCliente = pedidos.CodigoDoCliente
+   where clientes.NomeDaEmpresa like '%A%'
+   and pedidos.CidadeDeDestino = 'BARCELONA'

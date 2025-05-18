@@ -1,0 +1,26 @@
+CREATE view vwMes AS
+select funcionarios.DataDeNascimento, funcionarios.DataDeContratacao
+FROM funcionarios
+where month(datadecontratacao)=1
+ORDER BY funcionarios.DataDeContratacao
+
+ALTER view vwMes as
+select funcionarios.Nome, funcionarios.DataDeNascimento
+from funcionarios
+where month(datadenascimento)=5 and year(datadenascimento)=1960
+ORDER by funcionarios.Nome
+
+
+create PROCEDURE pReajustarPreco(IN produtos.CodigoDoProduto int,in valor_reajuste float)
+begin
+	update produtos 
+	set produtos.PrecoUnitario =produtos.precounitario * valor_reajuste;0
+    
+end;
+
+call pReajustarPreco
+DROP PROCEDURE pReajustarPreco;
+
+
+DELIMITER;
+
